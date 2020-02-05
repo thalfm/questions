@@ -1,0 +1,12 @@
+{
+    "Programa": {
+        "basename": "Programa",
+        "name": "Programa",
+        "slug": "programa",
+        "version": "1.0",
+        "description": "This is the description for the Programa module.",
+        "id": 49288205,
+        "enabled": true,
+        "order": 9001
+    }
+}
