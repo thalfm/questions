@@ -24,8 +24,8 @@ class Subject extends Model
             Subject::class,
             RelatedSubject::class,
             'subject_id_child',
-            'subject_id',
-            'subject_id',
+            'id',
+            'id',
             'subject_id_principal'
         );
     }
@@ -34,7 +34,7 @@ class Subject extends Model
     {
         return $this->belongsToMany(
             Subject::class,
-            'related_subject',
+            'related_subjects',
             'subject_id_principal',
             'subject_id_child'
         );
@@ -43,9 +43,7 @@ class Subject extends Model
     public function questoions($arrParam = [])
     {
         $questoions = $this->hasMany(
-            Question::class,
-            'subject_id',
-            'subject_id'
+            Question::class
         );
         if ($arrParam) {
             $questoions->where($arrParam);
@@ -53,13 +51,13 @@ class Subject extends Model
         return $questoions;
     }
 
-    public function questoesCount($arrParam = [])
+    public function questionsCount($arrParam = [])
     {
-        $questoesCount = $this->questoes($arrParam)->count();
+        $questoesCount = $this->questoions($arrParam)->count();
         $childs = $this->childs()->get();
         if ($childs->isNotEmpty()) {
             foreach ($childs as $child) {
-                $questoesCount += $child->quantidadeQuestoes($arrParam);
+                $questoesCount += $child->questionsCount($arrParam);
             }
         }
         return $questoesCount;

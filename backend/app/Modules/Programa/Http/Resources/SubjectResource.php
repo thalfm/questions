@@ -16,11 +16,11 @@ class SubjectResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id_assunto' => $this->id_assunto,
-            'no_assunto' => $this->no_assunto,
-            'pai' => $this->pai,
-            'filhos' => SubjectResource::collection($this->filhos),
-            'quantidade_questoes' => $this->quantidadeQuestoes(
+            'id_assunto' => $this->id,
+            'no_assunto' => $this->name,
+            'pai' => $this->principal,
+            'filhos' => SubjectResource::collection($this->childs),
+            'quantidade_questoes' => $this->questionsCount(
                 $request->all()
             ),
         ];

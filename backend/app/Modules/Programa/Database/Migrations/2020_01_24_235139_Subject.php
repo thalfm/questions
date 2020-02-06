@@ -14,7 +14,7 @@ class Subject extends Migration
     public function up()
     {
         Schema::create('subjects', function (Blueprint $table) {
-            $table->integerIncrements('subject_id');
+            $table->integerIncrements('id');
             $table->string('name', 255)->nullable();
         });
     }

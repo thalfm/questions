@@ -10,7 +10,7 @@ use Illuminate\Routing\Controller;
 class SubjectController extends Controller
 {
 
-    public function index(): \Illuminate\Http\JsonResponse
+    public function index()
     {
         return SubjectResource::collection(Subject::root()->get());
     }

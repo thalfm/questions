@@ -23,9 +23,9 @@ class QuestionTableSeeder extends Seeder
         foreach ($this->getQuestions() as $questao) {
             Question::firstOrCreate([
                 'name' => $questao['name'],
-                'agency_id' => Agency::firstOrCreate(['initials' => $questao['initials']])->agency_id,
-                'examining_board_id' => ExaminingBoard::firstOrCreate(['name' => $questao['examining_boards']])->examining_board_id,
-                'subject_id' => Subject::firstOrCreate(['name' => $questao['subject']])->subject_id,
+                'agency_id' => Agency::firstOrCreate(['initials' => $questao['initials']])->id,
+                'examining_board_id' => ExaminingBoard::firstOrCreate(['name' => $questao['examining_boards']])->id,
+                'subject_id' => Subject::firstOrCreate(['name' => $questao['subject']])->id,
             ]);
         }
     }

@@ -21,7 +21,8 @@ class SubjectTableSeeder extends Seeder
             /** @var Subject $subjectPrincipal */
             $subjectPrincipal = Subject::firstOrCreate($arSubject);
             foreach ($subjectsChild as $subjectChild) {
-                $subjectPrincipal->childs()->attach(Subject::firstOrCreate($subjectChild)->subject_id);
+                $child = Subject::firstOrCreate($subjectChild);
+                $subjectPrincipal->childs()->attach($child);
             }
         }
     }

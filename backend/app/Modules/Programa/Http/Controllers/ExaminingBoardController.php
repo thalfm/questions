@@ -2,13 +2,15 @@
 
 namespace App\Modules\Programa\Http\Controllers;
 
-use App\Modules\Programa\Services\BancaService;
-use Core\Http\Controllers\AApiResourceController;
+use App\Modules\Programa\Http\Resources\ExaminingBoardResource;
+use App\Modules\Programa\Models\ExaminingBoard;
+use Illuminate\Routing\Controller;
 
-class ExaminingBoardController extends AApiResourceController
+class ExaminingBoardController extends Controller
 {
-    public function __construct(BancaService $service)
+
+    public function index()
     {
-        parent::__construct($service);
+        return ExaminingBoardResource::collection(ExaminingBoard::all());
     }
 }

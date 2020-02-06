@@ -2,13 +2,14 @@
 
 namespace App\Modules\Programa\Http\Controllers;
 
-use App\Modules\Programa\Services\OrgaoService;
-use Core\Http\Controllers\AApiResourceController;
+use App\Modules\Programa\Http\Resources\AgencyResource;
+use App\Modules\Programa\Models\Agency;
+use Illuminate\Routing\Controller;
 
-class AgencyController extends AApiResourceController
+class AgencyController extends Controller
 {
-    public function __construct(OrgaoService $service)
+    public function index()
     {
-        parent::__construct($service);
+        return AgencyResource::collection(Agency::all());
     }
 }
