@@ -16,7 +16,7 @@ export const buscarOrgaosAction = ({ commit }) => programaService
   });
 
 export const cadastrarProgramaAction = ({ commit }, params) => {
-  programaService.buscarAssuntos(params.banca.id_banca, params.orgao.id_orgao)
+  programaService.buscarAssuntos(params.banca.id, params.orgao.id)
     .then((response) => {
       const programa = params;
       programa.assuntos = response.data.data;

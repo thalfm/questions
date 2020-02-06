@@ -18,6 +18,7 @@ class AgencyResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'initials' => $this->initials
         ];
     }
 }

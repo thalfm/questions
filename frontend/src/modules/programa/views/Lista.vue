@@ -14,7 +14,7 @@
               <v-expansion-panel-header
                 class="font-weight-bold"
               >
-                {{ item.banca.no_banca }} - {{ item.orgao.no_orgao }} ({{item.orgao.sg_orgao}})
+                {{ item.banca.name }} - {{ item.orgao.name }} ({{item.orgao.initials}})
               </v-expansion-panel-header>
               <v-expansion-panel-content>
                 <template>
@@ -28,7 +28,10 @@
                     rounded
                     selected-color="success"
                   >
-                    <template v-slot:label="{item}">
+
+
+                    <template v-slot:prepend="{ item }">
+                      <v-icon>mdi-folder</v-icon>
                       <span class="font-weight-bold">{{ item.no_assunto }}</span>
                       <v-chip
                         class="ma-2"
@@ -115,7 +118,7 @@
                   v-model="programa.banca"
                   :items="bancas"
                   label="Banca"
-                  item-text="no_banca"
+                  item-text="name"
                   return-object
                   :rules="[rules.required]"
                 />
@@ -129,7 +132,7 @@
                   v-model="programa.orgao"
                   :items="orgaos"
                   label="Orgão"
-                  item-text="no_orgao"
+                  item-text="name"
                   return-object
                   :rules="[rules.required]"
                 />
@@ -167,6 +170,7 @@ export default {
   components: {},
   data() {
     return {
+      open: ['public'],
       dialogPrograma: false,
       valid: false,
       programa: {},
