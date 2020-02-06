@@ -27,8 +27,6 @@ COPY . /app
 
 COPY --from=composer /app/vendor /app/vendor
 
-RUN ls -la
-
 RUN chmod 777 -R storage/
 
 RUN chmod 777 -R bootstrap/cache/
