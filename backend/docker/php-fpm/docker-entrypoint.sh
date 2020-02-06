@@ -3,6 +3,9 @@ set -e
 
 echo "[ ****************** ] Starting Endpoint of Application [ ****************** ]"
 
+echo "Make .env"
+php -r "file_exists('.env') || copy('.env.example', '.env');"
+
 echo "Back - Starting Endpoint of Application"
 if [ -d "./vendor" ]; then
     echo "Execute DB Migration"

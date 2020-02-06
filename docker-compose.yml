@@ -21,8 +21,9 @@ services:
       - questions_network
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-      timeout: 20s
-      retries: 10
+      timeout: 10s
+      retries: 20
+
 
   backend-service:
     container_name: questions-backend
