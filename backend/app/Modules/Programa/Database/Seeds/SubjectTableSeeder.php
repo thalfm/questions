@@ -4,7 +4,6 @@ namespace App\Modules\Programa\Database\Seeds;
 
 use App\Modules\Programa\Models\Subject;
 use Illuminate\Database\Seeder;
-use App\Modules\Conta\Model\Funcionalidade as FuncionalidadeModel;
 
 class SubjectTableSeeder extends Seeder
 {
@@ -20,9 +19,23 @@ class SubjectTableSeeder extends Seeder
             $subjectsChild = array_pop($arSubject);
             /** @var Subject $subjectPrincipal */
             $subjectPrincipal = Subject::firstOrCreate($arSubject);
+
             foreach ($subjectsChild as $subjectChild) {
+                $lastChilds = [];
+                if (is_array(end($subjectChild))) {
+                    $lastChilds = array_pop($subjectChild);
+                }
                 $child = Subject::firstOrCreate($subjectChild);
                 $subjectPrincipal->childs()->attach($child);
+
+                if (!$lastChilds) {
+                    continue;
+                }
+
+                foreach ($lastChilds as $lastChild) {
+                    $grandchild = Subject::firstOrCreate($lastChild);
+                    $child->childs()->attach($grandchild);
+                }
             }
         }
     }
@@ -49,7 +62,13 @@ class SubjectTableSeeder extends Seeder
             [
                 'name' => 'Noções de Informática',
                 'childs' => [
-                    ['name' => 'Sistema Operacional'],
+                    [
+                        'name' => 'Sistema Operacional',
+                        'grandchild' => [
+                            ['name' => 'Windows'],
+                            ['name' => 'Linux']
+                        ]
+                    ],
                     ['name' => 'Pacote de Aplicativos'],
                     ['name' => 'Softwares'],
                 ],

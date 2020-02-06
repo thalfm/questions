@@ -527,6 +527,24 @@ class QuestionTableSeeder extends Seeder
                 'examining_boards' => 'ESAF',
                 'subject' => 'Morfologia - Pronomes',
             ],
+            [
+                'name' => '1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce posuere pellentesque lacus eu convallis. Suspendisse quis feugiat ipsum. Nullam sed est interdum',
+                'initials' => 'SF',
+                'examining_boards' => 'ESAF',
+                'subject' => 'Análise Combinatória',
+            ],
+            [
+                'name' => '2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce posuere pellentesque lacus eu convallis. Suspendisse quis feugiat ipsum. Nullam sed est interdum',
+                'initials' => 'SF',
+                'examining_boards' => 'ESAF',
+                'subject' => 'Análise Combinatória',
+            ],
+            [
+                'name' => '3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce posuere pellentesque lacus eu convallis. Suspendisse quis feugiat ipsum. Nullam sed est interdum',
+                'initials' => 'SF',
+                'examining_boards' => 'ESAF',
+                'subject' => 'Proposições Simples e Compostas',
+            ],
         ];
     }
 }
