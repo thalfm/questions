@@ -66,7 +66,6 @@ class Subject extends Model
            return $questoesCount;
         }
 
-        $questoesCount = 0;
         foreach ($childs as $child) {
             $questoesCount += $child->questionsCount($filter);
         }

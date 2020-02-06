@@ -26,7 +26,12 @@ class SubjectTableSeeder extends Seeder
                     $lastChilds = array_pop($subjectChild);
                 }
                 $child = Subject::firstOrCreate($subjectChild);
-                $subjectPrincipal->childs()->attach($child);
+                try {
+                    $subjectPrincipal->childs()->attach($child);
+                }catch (\Exception $e) {
+
+                }
+
 
                 if (!$lastChilds) {
                     continue;
@@ -34,7 +39,11 @@ class SubjectTableSeeder extends Seeder
 
                 foreach ($lastChilds as $lastChild) {
                     $grandchild = Subject::firstOrCreate($lastChild);
-                    $child->childs()->attach($grandchild);
+                    try {
+                        $child->childs()->attach($grandchild);
+                    }catch (\Exception $e) {
+
+                    }
                 }
             }
         }

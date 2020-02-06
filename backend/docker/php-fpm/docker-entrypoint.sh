@@ -4,7 +4,7 @@ set -e
 echo "[ ****************** ] Starting Endpoint of Application [ ****************** ]"
 
 echo "Back - Starting Endpoint of Application"
-if ! [ -d "./vendor" ]; then
+if [ -d "./vendor" ]; then
     echo "Execute DB Migration"
     php artisan module:migrate
     echo "Execute Seeders"

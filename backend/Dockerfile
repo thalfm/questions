@@ -25,7 +25,13 @@ WORKDIR /app
 
 COPY . /app
 
+COPY ./docker/php-fpm/docker-entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["docker-entrypoint.sh"]
+
 COPY --from=composer /app/vendor /app/vendor
+
+RUN chmod 777 /usr/local/bin/docker-entrypoint.sh \
+    && ln -s /usr/local/bin/docker-entrypoint.sh /
 
 RUN chmod 777 -R storage/
 
