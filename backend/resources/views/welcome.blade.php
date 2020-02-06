@@ -71,7 +71,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://github.com/jorgeluizjr/questoes">Documentação</a>
+                    <a href="/api/documentacao">Documentação</a>
                 </div>
             </div>
         </div>

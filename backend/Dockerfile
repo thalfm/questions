@@ -2,10 +2,11 @@ FROM composer AS composer
 
 COPY . /app
 
-RUN composer install
+RUN set -xe \
+ && composer install
+
 
 FROM php:7.3-fpm
-
 
 RUN apt-get update --fix-missing \
     && apt-get install -y apt-utils \
@@ -20,11 +21,13 @@ RUN apt-get update --fix-missing \
     && docker-php-ext-install calendar \
     && docker-php-ext-install pdo mysqli pdo_mysql
 
-WORKDIR "/app"
+WORKDIR /app
 
-COPY . /
+COPY . /app
 
-COPY --from=composer /app/vendor /vendor
+COPY --from=composer /app/vendor /app/vendor
+
+RUN ls -la
 
 RUN chmod 777 -R storage/
 

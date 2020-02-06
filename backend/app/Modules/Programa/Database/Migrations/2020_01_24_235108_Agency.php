@@ -13,7 +13,7 @@ class Agency extends Migration
      */
     public function up()
     {
-        Schema::create('agency', function (Blueprint $table) {
+        Schema::create('agencies', function (Blueprint $table) {
             $table->integerIncrements('agency_id');
             $table->string('name', 255);
             $table->string('initials', 10);

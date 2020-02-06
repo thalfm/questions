@@ -13,7 +13,7 @@ class Subject extends Migration
      */
     public function up()
     {
-        Schema::create('subject', function (Blueprint $table) {
+        Schema::create('subjects', function (Blueprint $table) {
             $table->integerIncrements('subject_id');
             $table->string('name', 255)->nullable();
         });

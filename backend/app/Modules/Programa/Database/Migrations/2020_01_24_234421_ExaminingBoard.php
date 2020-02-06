@@ -13,7 +13,7 @@ class ExaminingBoard extends Migration
      */
     public function up()
     {
-        Schema::create('examining_board', function (Blueprint $table) {
+        Schema::create('examining_boards', function (Blueprint $table) {
             $table->integerIncrements('examining_board_id');
             $table->string('name', 255)->nullable();
         });

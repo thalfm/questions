@@ -17,9 +17,9 @@ Route::group([
 ], function ($router) {
     Route::apiResource('examining-board', 'ExaminingBoardController')
         ->only(['index']);
-    Route::apiResource('agency', 'OrgaoController')
+    Route::apiResource('agency', 'AgencyController')
         ->only(['index']);
-    Route::apiResource('subject', 'AssuntoController')
+    Route::apiResource('subject', 'SubjectController')
         ->only(['index']);
 });
 

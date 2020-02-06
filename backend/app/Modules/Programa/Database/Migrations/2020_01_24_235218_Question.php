@@ -13,7 +13,7 @@ class Question extends Migration
      */
     public function up()
     {
-        Schema::create('question', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->integerIncrements('question_id');
             $table->string('name', 5000);
             $table->unsignedInteger('agency_id');

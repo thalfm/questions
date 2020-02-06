@@ -13,7 +13,7 @@ class RelatedSubject extends Migration
      */
     public function up()
     {
-        Schema::create('related_subject', function (Blueprint $table) {
+        Schema::create('related_subjects', function (Blueprint $table) {
             $table->integerIncrements('related_subject_id');
             $table->unsignedInteger('subject_id_pincipal');
             $table->foreign('subject_id_pincipal')
