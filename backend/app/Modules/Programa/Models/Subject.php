@@ -40,26 +40,37 @@ class Subject extends Model
         );
     }
 
-    public function questoions($arrParam = [])
+    public function questoions()
     {
-        $questoions = $this->hasMany(
+        return $this->hasMany(
             Question::class
         );
-        if ($arrParam) {
-            $questoions->where($arrParam);
-        }
-        return $questoions;
     }
 
-    public function questionsCount($arrParam = [])
+    public function questionsByFilter(array $filter)
     {
-        $questoesCount = $this->questoions($arrParam)->count();
+        return $this->questoions()->where($filter);
+    }
+
+    public function questionsCount(array $filter = [])
+    {
+        $questoesCount = $this->questionsByFilter($filter)->count();
         $childs = $this->childs()->get();
-        if ($childs->isNotEmpty()) {
-            foreach ($childs as $child) {
-                $questoesCount += $child->questionsCount($arrParam);
-            }
+        return $questoesCount += $this->getQuantityOfChild($childs, $filter);
+    }
+
+    protected function getQuantityOfChild($childs, $filter)
+    {
+        $questoesCount = 0;
+        if (!$childs->isNotEmpty()) {
+           return $questoesCount;
         }
+
+        $questoesCount = 0;
+        foreach ($childs as $child) {
+            $questoesCount += $child->questionsCount($filter);
+        }
+
         return $questoesCount;
     }
 
