@@ -17,10 +17,10 @@ class RelatedSubject extends Migration
             $table->integerIncrements('related_subject_id');
             $table->unsignedInteger('subject_id_pincipal');
             $table->foreign('subject_id_pincipal')
-                ->references('subject_id')->on('subject');
+                ->references('subject_id')->on('subjects');
             $table->unsignedInteger('subject_id_child');
             $table->foreign('subject_id_child')
-                ->references('subject_id')->on('subject');
+                ->references('subject_id')->on('subjects');
 
             $table->unique('subject_id_child');
         });

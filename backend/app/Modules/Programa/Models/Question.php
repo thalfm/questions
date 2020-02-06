@@ -8,9 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    protected $table = 'tb_questao';
-
-    protected $primaryKey = 'id_questao';
 
     public $timestamps = false;
 

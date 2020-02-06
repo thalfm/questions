@@ -18,13 +18,13 @@ class Question extends Migration
             $table->string('name', 5000);
             $table->unsignedInteger('agency_id');
             $table->foreign('agency_id')
-                ->references('agency_id')->on('agency');
+                ->references('agency_id')->on('agencies');
             $table->unsignedInteger('examining_board_id');
             $table->foreign('examining_board_id')
-                ->references('examining_board_id')->on('examining_board');
+                ->references('examining_board_id')->on('examining_boards');
             $table->unsignedInteger('subject_id');
             $table->foreign('subject_id')
-                ->references('subject_id')->on('subject');
+                ->references('subject_id')->on('subjects');
         });
     }
 

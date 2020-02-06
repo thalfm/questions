@@ -13,10 +13,10 @@ class ProgramaDatabaseSeeder extends Seeder
     {
         try{
             DB::beginTransaction();
-            $this->call(BancaTableSeeder::class);
-            $this->call(OrgaoTableSeeder::class);
-            $this->call(AssuntoTableSeeder::class);
-            $this->call(QuestaoTableSeeder::class);
+            $this->call(ExaminingBoardTableSeeder::class);
+            $this->call(AgencyTableSeeder::class);
+            $this->call(SubjectTableSeeder::class);
+            $this->call(QuestionTableSeeder::class);
             DB::commit();
         } catch (\Exception $exception) {
             DB::rollBack();

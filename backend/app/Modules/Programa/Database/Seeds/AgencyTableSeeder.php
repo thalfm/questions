@@ -7,7 +7,7 @@ use App\Modules\Projeto\Models\Etapa;
 use Illuminate\Database\Seeder;
 
 
-class OrgaoTableSeeder extends Seeder
+class AgencyTableSeeder extends Seeder
 {
 
     /**
@@ -17,29 +17,29 @@ class OrgaoTableSeeder extends Seeder
      */
     public function run()
     {
-        foreach ($this->getOrgaos() as $orgao) {
+        foreach ($this->getAgencies() as $orgao) {
             Agency::firstOrCreate($orgao);
         }
     }
 
-    private function getOrgaos()
+    private function getAgencies()
     {
         return [
             [
-                'no_orgao' => 'Polícia Federal',
-                'sg_orgao' => 'PF'
+                'name' => 'Polícia Federal',
+                'initials' => 'PF'
             ],
             [
-                'no_orgao' => 'Polícia Civil do Distrito Federal',
-                'sg_orgao' => 'PC-DF'
+                'name' => 'Polícia Civil do Distrito Federal',
+                'initials' => 'PC-DF'
             ],
             [
-                'no_orgao' => 'Tribunal de Contas da União',
-                'sg_orgao' => 'TCU'
+                'name' => 'Tribunal de Contas da União',
+                'initials' => 'TCU'
             ],
             [
-                'no_orgao' => 'Senado Federal',
-                'sg_orgao' => 'SF'
+                'name' => 'Senado Federal',
+                'initials' => 'SF'
             ],
         ];
     }

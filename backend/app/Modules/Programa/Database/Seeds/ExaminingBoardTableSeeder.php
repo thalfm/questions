@@ -6,7 +6,7 @@ use App\Modules\Programa\Models\ExaminingBoard;
 use Illuminate\Database\Seeder;
 
 
-class BancaTableSeeder extends Seeder
+class ExaminingBoardTableSeeder extends Seeder
 {
 
     /**
@@ -16,17 +16,17 @@ class BancaTableSeeder extends Seeder
      */
     public function run()
     {
-        foreach ($this->getBancas() as $banca) {
+        foreach ($this->getExaminingBoard() as $banca) {
             ExaminingBoard::firstOrCreate($banca);
         }
     }
 
-    private function getBancas()
+    private function getExaminingBoard()
     {
         return [
-            ['no_banca' => 'CESPE'],
-            ['no_banca' => 'IADES'],
-            ['no_banca' => 'ESAF'],
+            ['name' => 'CESPE'],
+            ['name' => 'IADES'],
+            ['name' => 'ESAF'],
         ];
     }
 }
