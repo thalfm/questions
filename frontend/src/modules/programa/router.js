@@ -6,13 +6,13 @@ export default [
     path: '/',
     component: DefaultLayout,
     redirect: 'programa',
-    meta: { title: 'Programa' },
+    meta: { title: 'Questions' },
     hidden: true,
     children: [
       {
         path: 'programa',
         name: 'programa.listar',
-        meta: { title: 'Programas' },
+        meta: { title: 'Questions' },
         component: () => import(/* webpackChunkName: "programa-lista" */ '@/modules/programa/views/Lista.vue'),
       },
     ],

@@ -10,4 +10,8 @@ export default {
   [types.SET_PROGRAMA](state, programa) {
     state.programas.push(programa);
   },
+
+  [types.CLEAR_PROGRAMA](state) {
+    state.programas = [];
+  },
 };

@@ -21,9 +21,7 @@
       inset
       absolute
     >
-      <span class="caption">Questões {{ new Date().getFullYear() }}</span>
-      <v-spacer />
-      <span class="caption mr-1"> Jorge Luiz Jr. <a href="https://github.com/jorgeluizjr/questoes">https://github.com/jorgeluizjr/questoes</a></span>
+      <span class="caption">Questions Gran {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-container>
 </template>

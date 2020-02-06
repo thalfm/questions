@@ -23,3 +23,7 @@ export const cadastrarProgramaAction = ({ commit }, params) => {
       commit(types.SET_PROGRAMA, programa);
     });
 };
+
+export const limparProgramaAction = ({ commit }) => {
+  commit(types.CLEAR_PROGRAMA);
+};
